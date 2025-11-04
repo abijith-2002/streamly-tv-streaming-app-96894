@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+// PUBLIC_INTERFACE
+/**
+ * Conventional Gradle settings stub added to help tools detect the project root.
+ * The real configuration is defined in settings.gradle.dcl (Declarative Gradle).
+ * We mirror minimal metadata and includes so analyzers can resolve modules.
+ */
+rootProject.name = "example-android-app"
+
+include(":app")
+include(":list")
+include(":utilities")
