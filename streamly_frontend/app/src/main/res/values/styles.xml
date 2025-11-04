@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App base theme (placeholder; project may override elsewhere if needed) -->
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Customize your app theme here if needed -->
+    </style>
+
+    <!-- Splash theme using solid background -->
+    <style name="Theme.Splash" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
