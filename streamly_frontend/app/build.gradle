@@ -1,0 +1,5 @@
+ // PUBLIC_INTERFACE
+ /**
+  * Groovy build file delegating to build.gradle.kts to satisfy tools expecting build.gradle.
+  */
+ apply from: "${project.projectDir}/build.gradle.kts"

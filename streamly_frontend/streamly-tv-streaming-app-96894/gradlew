@@ -1,0 +1,14 @@
+#!/bin/sh
+# PUBLIC_INTERFACE
+# Delegating Gradle wrapper at repository root.
+# This script forwards all Gradle calls to the real wrapper under streamly_frontend/.
+
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+FRONTEND_DIR="$SCRIPT_DIR/streamly_frontend"
+
+if [ ! -x "$FRONTEND_DIR/gradlew" ]; then
+  echo "Gradle wrapper not found at $FRONTEND_DIR/gradlew"
+  exit 1
+fi
+
+exec "$FRONTEND_DIR/gradlew" "$@"

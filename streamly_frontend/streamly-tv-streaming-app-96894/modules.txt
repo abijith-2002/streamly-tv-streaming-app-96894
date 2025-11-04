@@ -1,0 +1,8 @@
+# PUBLIC_INTERFACE
+# Explicit list of Gradle modules for tooling that scans plain text:
+:app
+:list
+:utilities
+
+# Project root for Android project:
+streamly_frontend

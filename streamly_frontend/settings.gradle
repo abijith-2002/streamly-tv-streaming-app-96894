@@ -1,19 +1,32 @@
-pluginManagement {
-    repositories {
-        google()
-        gradlePluginPortal()
-        mavenCentral()
-    }
-}
+ // PUBLIC_INTERFACE
+ /**
+  * Conventional Groovy settings at the Android project root for tool compatibility.
+  * Mirrors settings.gradle.kts and includes all modules.
+  */
+ pluginManagement {
+     repositories {
+         google()
+         gradlePluginPortal()
+         mavenCentral()
+     }
+     plugins {
+         id("com.android.application") version "8.6.1"
+         id("com.android.library") version "8.6.1"
+         id("org.jetbrains.kotlin.android") version "2.0.21"
+     }
+ }
 
-// PUBLIC_INTERFACE
-/**
- * Conventional Gradle settings stub added to help tools detect the project root.
- * The real configuration is defined in settings.gradle.dcl (Declarative Gradle).
- * We mirror minimal metadata and includes so analyzers can resolve modules.
- */
-rootProject.name = "example-android-app"
+ dependencyResolutionManagement {
+     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+     repositories {
+         google()
+         mavenCentral()
+         gradlePluginPortal()
+     }
+ }
 
-include(":app")
-include(":list")
-include(":utilities")
+ rootProject.name = "example-android-app"
+
+ include(":app")
+ include(":list")
+ include(":utilities")

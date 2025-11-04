@@ -1,0 +1,7 @@
+ // PUBLIC_INTERFACE
+ /**
+  * Repository root settings for tooling compatibility (Groovy DSL).
+  * Delegates to the actual Android project located under streamly_frontend/ via composite build.
+  */
+ rootProject.name = "streamly-repo-root"
+ includeBuild("streamly_frontend")

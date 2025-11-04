@@ -1,0 +1,4 @@
+# PUBLIC_INTERFACE
+# Ensure shell scripts keep LF endings
+*.sh text eol=lf
+gradlew text eol=lf

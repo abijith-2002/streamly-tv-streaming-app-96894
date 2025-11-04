@@ -1,20 +1,36 @@
-import java.io.File
+@file:Suppress("UnstableApiUsage")
 
 // PUBLIC_INTERFACE
 /**
- * This settings file exists to help tools detect the Gradle project root.
- * The actual project settings are defined in settings.gradle.dcl.
- * We do not alter the build; this file only delegates by printing a hint.
- *
- * Note for humans/tools:
- * - The real configuration is in settings.gradle.dcl per Declarative Gradle prototype.
- * - Keep this file minimal to avoid interfering with the declarative setup.
+ * Canonical Gradle settings for the Streamly Android TV app.
+ * Migrated to conventional Gradle so environments lacking Declarative DSL can build.
+ * - Declares repositories and plugin versions
+ * - Includes all modules
  */
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+    plugins {
+        id("com.android.application") version "8.6.1"
+        id("com.android.library") version "8.6.1"
+        id("org.jetbrains.kotlin.android") version "2.0.21"
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
 rootProject.name = "example-android-app"
 
-// Optionally inform users/tools where the main settings are.
-// This is a no-op for Gradle itself; it just leaves a breadcrumb for analyzers.
-val declarativeSettings = File(rootDir, "settings.gradle.dcl")
-if (!declarativeSettings.exists()) {
-    logger.warn("settings.gradle.dcl not found; project may not build as intended.")
-}
+include(":app")
+include(":list")
+include(":utilities")

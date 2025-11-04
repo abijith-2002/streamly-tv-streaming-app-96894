@@ -1,0 +1,10 @@
+// PUBLIC_INTERFACE
+/**
+ * Backup KTS settings retained for reference. Actual configuration uses:
+ * - settings.gradle (Groovy) at repo root to allow tooling detection
+ * - streamly_frontend/settings.gradle(.kts) as the actual Android project
+ *
+ * This file is not used by Gradle when settings.gradle (Groovy) is present.
+ */
+rootProject.name = "streamly-repo-root"
+includeBuild("streamly_frontend")
