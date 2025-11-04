@@ -1,1 +1,3 @@
-# streamly-tv-streaming-app-96894
+# Project Repository
+
+This is the initial README file for the project.
