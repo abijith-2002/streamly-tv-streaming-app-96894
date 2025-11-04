@@ -1,0 +1,4 @@
+{
+    "command": "./gradlew dependencies",
+    "working_directory": "/home/kavia/workspace/code-generation/streamly-tv-streaming-app-96894/streamly_frontend"
+}
