@@ -1,0 +1,4 @@
+<resources>
+    <color name="splash_background">#121212</color>
+    <color name="on_splash_text">#FFFFFF</color>
+</resources>
