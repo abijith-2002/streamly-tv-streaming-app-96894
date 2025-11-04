@@ -1,0 +1,1 @@
+mv /home/kavia/workspace/code-generation/streamly-tv-streaming-app-96894/streamly_frontend/app/build/outputs/apk/debug/app-debug.apk /home/kavia/workspace/code-generation/streamly-tv-streaming-app-96894/streamly_frontend/app-debug.apk 
