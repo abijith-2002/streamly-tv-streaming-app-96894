@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
@@ -11,7 +13,8 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
  * PUBLIC_INTERFACE
  * SplashActivity
  * This is the launcher activity that shows a branded splash using the Android 12+ SplashScreen API
- * with a fallback for earlier versions. It immediately routes to MainActivity after minimal init.
+ * with a fallback for earlier versions. Displays centered 'Streamly' text in Roboto on #121212,
+ * then routes to MainActivity.
  */
 class SplashActivity : Activity() {
 
@@ -24,11 +27,16 @@ class SplashActivity : Activity() {
         }
         super.onCreate(savedInstanceState)
 
-        // Optional: Keep the splash until we are ready; here we don't delay startup
+        // Ensure the window shows our splash layout; theme keeps background to avoid flicker
+        setContentView(R.layout.activity_splash)
+
+        // Optional: Do not delay the splash. This ensures quick handoff.
         splash?.setKeepOnScreenCondition { false }
 
-        // Route to the existing MainActivity
-        startActivity(Intent(this, com.streamly.tv.MainActivity::class.java))
-        finish()
+        // Proceed to MainActivity promptly (small post to ensure layout draws at least once)
+        Handler(Looper.getMainLooper()).post {
+            startActivity(Intent(this, com.streamly.tv.MainActivity::class.java))
+            finish()
+        }
     }
 }

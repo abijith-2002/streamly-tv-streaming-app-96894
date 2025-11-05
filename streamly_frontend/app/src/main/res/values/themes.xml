@@ -16,9 +16,9 @@
     <style name="Theme.Streamly.Splash" parent="Theme.SplashScreen">
         <!-- Background of the splash -->
         <item name="windowSplashScreenBackground">@color/colorSplashBackground</item>
-        <!-- Optional splash icon; using an adaptive vector placeholder -->
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
         <!-- Keep same background for post-splash until content drawn -->
         <item name="postSplashScreenTheme">@style/Theme.Streamly</item>
+        <!-- Ensure window background is set to avoid flicker on older versions -->
+        <item name="android:windowBackground">@color/colorSplashBackground</item>
     </style>
 </resources>
