@@ -1,9 +1,31 @@
 /*
  Root build script for the Streamly Android project.
- Adds a root-level 'lint' task that delegates to the app module, so CI linters invoking ':lint' at the project root succeed.
+ Standard repositories and Android/Kotlin plugin management at the root.
+ This ensures standard tasks like `clean` are available and modules resolve correctly.
 */
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        // Explicit versions per project policy
+        classpath "com.android.tools.build:gradle:8.5.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Optional: root lint convenience delegator
 tasks.register("lint") {
     group = "verification"
     description = "Runs Android Lint for the app module."
-    dependsOn(gradle.includedBuilds.isEmpty() ? ":app:lint" : ":app:lint")
+    dependsOn(":app:lint")
 }

@@ -6,7 +6,7 @@ pluginManagement {
     }
 }
 
-rootProject.name = "example-android-app"
+rootProject.name = "streamly-frontend"
 
 include("app")
 include("list")

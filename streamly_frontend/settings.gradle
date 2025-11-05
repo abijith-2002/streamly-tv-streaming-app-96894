@@ -18,4 +18,7 @@ dependencyResolutionManagement {
 // Primary Gradle root for the Android app
 rootProject.name = "streamly-frontend"
 
-// No composite includes here; this is the real project root.
+// Include all modules for proper task discovery (clean, assemble, etc.)
+include(":app")
+include(":list")
+include(":utilities")

@@ -3,6 +3,8 @@
 # ----------------------------
 # Android Build Script
 # ----------------------------
+# Note: Run this script from inside streamly_frontend/ (the Gradle root).
+# Example: ./build.sh --clean
 
 # Exit on first error
 set -e

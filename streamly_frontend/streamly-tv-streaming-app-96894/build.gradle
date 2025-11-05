@@ -1,41 +1,8 @@
 /*
- This root build is a shim for CI analyzers.
- The actual Android project is in streamly_frontend/. This file exists to
- allow tools that expect a build.gradle at repository root to proceed.
+ Redirect shim: Points analyzers to the canonical Gradle root one level up.
 */
-tasks.register("helpRoot") {
+tasks.register("helpRedirect") {
     doLast {
-        println("Use ./gradlew in streamly_frontend/ or root shim to build the Android project.")
-    }
-}
-
-/*
- Lint delegator using GradleBuild to invoke tasks in the included build.
- This avoids cross-build task dependency resolution errors.
-*/
-tasks.register(org.gradle.buildinit.plugins.internal.tasks.GradleBuild, "lint") {
-    group = "verification"
-    description = "Runs Android Lint within the included build streamly_frontend (or assembles if lint is not available)."
-    dir = file("streamly_frontend")
-    tasks = [":app:lint"]
-    doFirst {
-        println("Invoking lint in included build at streamly_frontend")
-    }
-    doLast {
-        println("Completed lint invocation in included build")
-    }
-}
-
-/*
- Optional: Provide a safe fallback alias if lint isn’t available in the environment.
- Run with: ./gradlew lintFallback
-*/
-tasks.register(org.gradle.buildinit.plugins.internal.tasks.GradleBuild, "lintFallback") {
-    group = "verification"
-    description = "Fallback: assembles the app in the included build when lint is unavailable."
-    dir = file("streamly_frontend")
-    tasks = [":app:assembleDebug"]
-    doFirst {
-        println("Invoking assembleDebug in included build at streamly_frontend (fallback)")
+        println("This is a redirect shim. Use ../gradlew from streamly_frontend (canonical root).")
     }
 }
