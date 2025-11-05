@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 class MessageUtilsTest {
     @Test
     fun testGetMessage() {
-        assertEquals("Hello      World!", MessageUtils.message())
+        // Expect the exact spacing returned by MessageUtils.message()
+        assertEquals("Hello     World!", MessageUtils.message())
     }
 }

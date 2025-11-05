@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Branded splash window background drawable.
+  Renders immediately on window creation before any content is drawn, ensuring the text is visible from the start.
+  - Background: #121212
+  - Centered "Streamly" text in Roboto, white, 36sp
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Solid background color -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/colorSplashBackground" />
+        </shape>
+    </item>
+
+    <!-- Centered text label -->
+    <item
+        android:gravity="center">
+        <bitmap
+            android:src="@drawable/ic_splash_logo"
+            android:gravity="center"
+            android:antialias="true" />
+    </item>
+
+    <!-- Optional: If you prefer pure text during the windowBackground phase, you can switch to an inset/shape + text layout drawable.
+         However, Android windowBackground doesn't support a TextView directly. For maximal compatibility and immediate render,
+         we display the logo via bitmap above. The Activity layout (activity_splash.xml) contains the Roboto text too. -->
+</layer-list>

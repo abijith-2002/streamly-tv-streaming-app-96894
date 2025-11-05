@@ -14,11 +14,11 @@
 
     <!-- Splash screen theme for Android 12+ and fallback -->
     <style name="Theme.Streamly.Splash" parent="Theme.SplashScreen">
-        <!-- Background of the splash -->
+        <!-- Background of the splash (Android 12+ API field) -->
         <item name="windowSplashScreenBackground">@color/colorSplashBackground</item>
         <!-- Keep same background for post-splash until content drawn -->
         <item name="postSplashScreenTheme">@style/Theme.Streamly</item>
-        <!-- Ensure window background is set to avoid flicker on older versions -->
-        <item name="android:windowBackground">@color/colorSplashBackground</item>
+        <!-- Ensure an immediate, branded background with centered art is visible from the first frame -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 </resources>

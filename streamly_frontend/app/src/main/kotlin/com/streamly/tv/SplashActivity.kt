@@ -17,9 +17,11 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
  * then routes to MainActivity after a fixed 3-second duration.
  *
  * Behavior:
- * - Android 12+ (API 31+): Uses SplashScreen API with setKeepOnScreenCondition to keep
- *   the splash visible for 3 seconds without blocking the main thread.
- * - Below Android 12: Uses a non-blocking Handler postDelayed to achieve the same duration.
+ * - Android 12+ (API 31+): Uses SplashScreen API with setKeepOnScreenCondition strictly for timing
+ *   the 3-second duration; content view is set immediately and theme windowBackground shows
+ *   branded visuals from the start.
+ * - Below Android 12: Uses a non-blocking Handler postDelayed to achieve the same duration,
+ *   with the theme-provided windowBackground ensuring immediate visuals.
  *
  * Visuals remain unchanged: background color #121212 and "Streamly" text in Roboto.
  * Package and navigation to MainActivity remain the same.
