@@ -1,0 +1,4 @@
+{
+  "canonicalGradleRoot": "streamly_frontend",
+  "notes": "Use ./gradlew from repo root (delegates) or cd streamly_frontend && ./gradlew clean assembleDebug"
+}

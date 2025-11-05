@@ -6,18 +6,10 @@ pluginManagement {
     }
 }
 
-// Root-level declarative settings shim for CI discovery.
+// Root-level declarative settings shim for CI/analyzer discovery.
 // The actual Android project is located in streamly_frontend/.
 defaults {
     androidApplication {
-        jdkVersion = 17
-        compileSdk = 34
-        minSdk = 30
-        versionCode = 1
-        versionName = "0.1"
-        applicationId = "com.streamly.tv"
-    }
-    androidLibrary {
         jdkVersion = 17
         compileSdk = 34
         minSdk = 30

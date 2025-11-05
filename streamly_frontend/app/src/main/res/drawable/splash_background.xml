@@ -3,7 +3,7 @@
   Branded splash window background drawable.
   Drawn immediately on window creation for first-frame visibility.
   - Background: #121212
-  - Centered "Streamly" wordmark simulated via vector paths (Roboto-like)
+  - Centered "Streamly" wordmark vector
 -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -15,16 +15,8 @@
     </item>
 
     <!-- Centered vector containing the wordmark -->
-    <item android:gravity="center">
-        <!-- Use a vector drawable via <inset>/<bitmap> is not possible for vector, so inline a small vector via <bitmap> is also not supported.
-             Instead, approximate by drawing the word "Streamly" using a path in a vector wrapped through an <bitmap> is not possible.
-             Workaround: Use a vector as a separate drawable and reference it via <bitmap> by converting to a prerendered resource at build time is not feasible.
-             Therefore, embed the text as a shape path using a vector defined as an XML drawable and reference it here via @drawable/splash_wordmark.
-        -->
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/splash_wordmark"
-            android:antialias="true" />
-    </item>
+    <item
+        android:gravity="center"
+        android:drawable="@drawable/splash_wordmark" />
 
 </layer-list>
