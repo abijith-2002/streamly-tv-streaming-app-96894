@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Core palette aligning with #121212 splash background -->
+    <color name="colorSplashBackground">#121212</color>
+    <color name="colorPrimary">#2563EB</color>
+    <color name="colorPrimaryDark">#1E3A8A</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#F59E0B</color>
+    <color name="colorSurface">#121212</color>
+    <color name="colorOnSurface">#FFFFFF</color>
+</resources>
