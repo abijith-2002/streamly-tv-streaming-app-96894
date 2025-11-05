@@ -1,0 +1,10 @@
+/*
+ This root build is a shim for CI analyzers.
+ The actual Android project is in streamly_frontend/. This file exists to
+ allow tools that expect a build.gradle at repository root to proceed.
+*/
+tasks.register("helpRoot") {
+    doLast {
+        println("Use ./gradlew in streamly_frontend/ or root shim to build the Android project.")
+    }
+}

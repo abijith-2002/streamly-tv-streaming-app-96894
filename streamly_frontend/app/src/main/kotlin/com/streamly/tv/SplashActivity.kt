@@ -14,9 +14,20 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
  * SplashActivity
  * This is the launcher activity that shows a branded splash using the Android 12+ SplashScreen API
  * with a fallback for earlier versions. Displays centered 'Streamly' text in Roboto on #121212,
- * then routes to MainActivity.
+ * then routes to MainActivity after a fixed 3-second duration.
+ *
+ * Behavior:
+ * - Android 12+ (API 31+): Uses SplashScreen API with setKeepOnScreenCondition to keep
+ *   the splash visible for 3 seconds without blocking the main thread.
+ * - Below Android 12: Uses a non-blocking Handler postDelayed to achieve the same duration.
+ *
+ * Visuals remain unchanged: background color #121212 and "Streamly" text in Roboto.
+ * Package and navigation to MainActivity remain the same.
  */
 class SplashActivity : Activity() {
+
+    private val splashDurationMillis = 3000L
+    private val mainHandler by lazy { Handler(Looper.getMainLooper()) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Install SplashScreen for Android 12+ (fallback is handled gracefully on older versions)
@@ -30,11 +41,33 @@ class SplashActivity : Activity() {
         // Ensure the window shows our splash layout; theme keeps background to avoid flicker
         setContentView(R.layout.activity_splash)
 
-        // Optional: Do not delay the splash. This ensures quick handoff.
-        splash?.setKeepOnScreenCondition { false }
+        val startTime = System.currentTimeMillis()
 
-        // Proceed to MainActivity promptly (small post to ensure layout draws at least once)
-        Handler(Looper.getMainLooper()).post {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            // Keep splash visible until 3 seconds have elapsed since start, without blocking the UI.
+            splash?.setKeepOnScreenCondition {
+                val elapsed = System.currentTimeMillis() - startTime
+                elapsed < splashDurationMillis
+            }
+            // Schedule navigation right after the duration; setKeepOnScreenCondition will soon return false.
+            mainHandler.postDelayed({
+                navigateToMain()
+            }, splashDurationMillis)
+        } else {
+            // Pre-Android 12: use a non-blocking delay via Handler
+            mainHandler.postDelayed({
+                navigateToMain()
+            }, splashDurationMillis)
+        }
+    }
+
+    // PUBLIC_INTERFACE
+    private fun navigateToMain() {
+        /**
+         * Navigate to MainActivity and finish the splash activity.
+         * This method is invoked after the 3-second splash duration elapses.
+         */
+        if (!isFinishing) {
             startActivity(Intent(this, com.streamly.tv.MainActivity::class.java))
             finish()
         }
