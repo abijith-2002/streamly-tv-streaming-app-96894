@@ -2,11 +2,8 @@ pluginManagement {
     repositories {
         google()
         gradlePluginPortal()
+        mavenCentral()
     }
-}
-
-plugins {
-    id("org.gradle.experimental.android-ecosystem").version("0.1.43")
 }
 
 rootProject.name = "example-android-app"
@@ -15,6 +12,7 @@ include("app")
 include("list")
 include("utilities")
 
+// Declarative defaults retained; no experimental plugin required.
 defaults {
     androidApplication {
         jdkVersion = 17

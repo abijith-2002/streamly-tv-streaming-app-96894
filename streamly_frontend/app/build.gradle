@@ -1,5 +1,73 @@
-/**
- * Delegate Android app configuration to Declarative Gradle (.dcl).
- * The root build.gradle applies the org.gradle.experimental.android-ecosystem plugin.
- */
-apply from: "build.gradle.dcl"
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.streamly.tv'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.streamly.tv"
+        minSdk 30
+        targetSdk 34
+        versionCode 1
+        versionName "0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // Keep default debug config
+        }
+    }
+
+    packagingOptions {
+        resources {
+            excludes += [
+                    'META-INF/AL2.0',
+                    'META-INF/LGPL2.1'
+            ]
+        }
+    }
+}
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+
+    // AppCompat for base theme
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    // AndroidX Core SplashScreen for splash handling (Android 12+ with graceful fallback)
+    implementation "androidx.core:core-splashscreen:1.0.1"
+
+    // Apache commons-text used in MainActivity
+    implementation "org.apache.commons:commons-text:1.11.0"
+
+    // Local project modules
+    implementation project(":utilities")
+
+    testImplementation "org.junit.jupiter:junit-jupiter:5.10.2"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}

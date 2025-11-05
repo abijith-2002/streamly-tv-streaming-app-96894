@@ -1,18 +1,3 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-    dependencies {
-        // Add the experimental Android ecosystem plugin so Declarative Gradle .dcl files are recognized
-        classpath "org.gradle.experimental:android-ecosystem:0.1.43"
-    }
-}
-
-apply plugin: "org.gradle.experimental.android-ecosystem"
-
-// Keep this minimal; modules use .dcl files for configuration.
 allprojects {
     repositories {
         google()

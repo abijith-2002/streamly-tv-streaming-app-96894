@@ -1,18 +1,28 @@
 pluginManagement {
     repositories {
         google()
-        gradlePluginPortal()
         mavenCentral()
+        gradlePluginPortal()
+    }
+    plugins {
+        id("com.android.application") version "8.6.1"
+        id("com.android.library") version "8.6.1"
+        id("org.jetbrains.kotlin.android") version "1.9.24"
     }
 }
 
-// Note: Direct 'apply from' on settings can trigger classloader scope lock errors in some CI environments.
-// We keep the canonical Declarative Gradle settings for actual configuration, and ensure standard
-// Gradle discovery can still find modules for tooling/lint. The .dcl file remains the source of truth.
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
 
 rootProject.name = "example-android-app"
 
-// Explicitly include modules so build tools can detect the Android project layout.
+// Include only intended modules.
 include(":app")
 include(":list")
 include(":utilities")
