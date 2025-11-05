@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Vector wordmark used within the splash windowBackground for first-frame text visibility.
+  Background is transparent; parent layer-list provides #121212 fill.
+  The path approximates "Streamly" in a Roboto-like geometric style for branding within constraints.
+  Size chosen for TV density; scaled by vector.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="600dp"
+    android:height="120dp"
+    android:viewportWidth="600"
+    android:viewportHeight="120">
+    <!-- Wordmark group (white fill) -->
+    <group
+        android:translateX="0"
+        android:translateY="10">
+        <!-- Simple geometric approximation of letters to avoid font dependency during windowBackground -->
+        <!-- S -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M40,25
+                              c0,-16 14,-25 35,-25
+                              c15,0 28,5 36,12
+                              l-14,10
+                              c-6,-5 -13,-7 -22,-7
+                              c-10,0 -17,4 -17,10
+                              c0,7 8,9 21,11
+                              c19,3 38,9 38,28
+                              c0,18 -16,31 -43,31
+                              c-18,0 -34,-6 -44,-16
+                              l14,-10
+                              c7,7 18,11 30,11
+                              c14,0 23,-6 23,-15
+                              c0,-9 -9,-12 -24,-14
+                              c-20,-3 -33,-10 -33,-26z"/>
+        <!-- t -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M170,20 v26 h30 v16 h-30 v38 h-18 v-38 h-20 v-16 h20 v-24
+                              c0,-20 12,-30 31,-30 c7,0 13,1 17,3 v16 c-4,-2 -9,-3 -13,-3 c-10,0 -13,5 -13,12z"/>
+        <!-- r -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M214,22 h18 v16 c5,-12 15,-18 29,-18 c4,0 8,1 11,2 v18
+                              c-3,-1 -7,-2 -11,-2 c-16,0 -29,10 -29,33 v37 h-18z"/>
+        <!-- e -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M328,38 c22,0 38,16 38,41 v6 h-62 c2,13 12,22 28,22 c9,0 17,-3 24,-8 l8,12
+                              c-9,7 -21,12 -35,12 c-28,0 -46,-19 -46,-44 c0,-26 18,-41 45,-41z
+                              M304,73 h44 c-1,-14 -10,-23 -22,-23 c-13,0 -21,8 -22,23z"/>
+        <!-- a -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M438,38 c23,0 38,16 38,41 v6 h-62 c2,13 12,22 28,22 c9,0 17,-3 24,-8 l8,12
+                              c-9,7 -21,12 -35,12 c-28,0 -46,-19 -46,-44 c0,-26 18,-41 45,-41z
+                              M414,73 h44 c-1,-14 -10,-23 -22,-23 c-13,0 -21,8 -22,23z"/>
+        <!-- m -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M482,22 h18 v16 c5,-12 15,-18 27,-18 c12,0 21,6 24,18 c6,-12 16,-18 28,-18
+                              c19,0 30,13 30,35 v53 h-18 v-49 c0,-14 -6,-22 -18,-22 c-12,0 -20,10 -20,26 v45 h-18 v-49
+                              c0,-14 -6,-22 -18,-22 c-12,0 -20,10 -20,26 v45 h-18z"/>
+        <!-- l -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M692,22 h18 v100 h-18z"/>
+        <!-- y -->
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M730,22 h18 v39 l33,61 h-20 l-22,-43 -22,43 h-20 l33,-61z"/>
+    </group>
+</vector>

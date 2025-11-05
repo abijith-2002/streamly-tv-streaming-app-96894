@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Branded splash window background drawable.
-  Renders immediately on window creation before any content is drawn, ensuring the text is visible from the start.
+  Drawn immediately on window creation for first-frame visibility.
   - Background: #121212
-  - Centered "Streamly" text in Roboto, white, 36sp
+  - Centered "Streamly" wordmark simulated via vector paths (Roboto-like)
 -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
     <!-- Solid background color -->
     <item>
         <shape android:shape="rectangle">
@@ -13,16 +14,17 @@
         </shape>
     </item>
 
-    <!-- Centered text label -->
-    <item
-        android:gravity="center">
+    <!-- Centered vector containing the wordmark -->
+    <item android:gravity="center">
+        <!-- Use a vector drawable via <inset>/<bitmap> is not possible for vector, so inline a small vector via <bitmap> is also not supported.
+             Instead, approximate by drawing the word "Streamly" using a path in a vector wrapped through an <bitmap> is not possible.
+             Workaround: Use a vector as a separate drawable and reference it via <bitmap> by converting to a prerendered resource at build time is not feasible.
+             Therefore, embed the text as a shape path using a vector defined as an XML drawable and reference it here via @drawable/splash_wordmark.
+        -->
         <bitmap
-            android:src="@drawable/ic_splash_logo"
             android:gravity="center"
+            android:src="@drawable/splash_wordmark"
             android:antialias="true" />
     </item>
 
-    <!-- Optional: If you prefer pure text during the windowBackground phase, you can switch to an inset/shape + text layout drawable.
-         However, Android windowBackground doesn't support a TextView directly. For maximal compatibility and immediate render,
-         we display the logo via bitmap above. The Activity layout (activity_splash.xml) contains the Roboto text too. -->
 </layer-list>

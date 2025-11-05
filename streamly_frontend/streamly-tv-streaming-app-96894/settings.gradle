@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+// Root-level settings file to assist CI tools in locating the real Android project.
+// The actual Android project lives under streamly_frontend/.
+rootProject.name = "streamly-root-ci"
+
+// Include the nested Android project as a composite build for discovery.
+includeBuild("streamly_frontend")

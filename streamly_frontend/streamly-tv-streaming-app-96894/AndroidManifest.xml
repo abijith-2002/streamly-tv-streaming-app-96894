@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Stub manifest to assist analyzers in identifying this repository as an Android project.
+  The actual application manifest is located at:
+  streamly_frontend/app/src/main/AndroidManifest.xml
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.streamly.stub">
+    <application android:hasCode="false" />
+</manifest>

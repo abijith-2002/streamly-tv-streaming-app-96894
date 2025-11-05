@@ -40,7 +40,8 @@ class SplashActivity : Activity() {
         }
         super.onCreate(savedInstanceState)
 
-        // Ensure the window shows our splash layout; theme keeps background to avoid flicker
+        // Ensure content is set immediately; first-frame visuals come from theme windowBackground.
+        // Layout is minimal; windowBackground provides the "Streamly" wordmark instantly.
         setContentView(R.layout.activity_splash)
 
         val startTime = System.currentTimeMillis()
