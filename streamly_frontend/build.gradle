@@ -1,7 +1,9 @@
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
+/*
+ Root build script for the Streamly Android project.
+ Adds a root-level 'lint' task that delegates to the app module, so CI linters invoking ':lint' at the project root succeed.
+*/
+tasks.register("lint") {
+    group = "verification"
+    description = "Runs Android Lint for the app module."
+    dependsOn(gradle.includedBuilds.isEmpty() ? ":app:lint" : ":app:lint")
 }

@@ -15,9 +15,10 @@ dependencyResolutionManagement {
     }
 }
 
-// Root-level settings file to assist CI tools in locating the real Android project.
+// This root-level settings file exists to help CI tools detect the Gradle project root.
 // The actual Android project lives under streamly_frontend/.
-rootProject.name = "streamly-root-ci"
+rootProject.name = "streamly-root"
 
 // Include the nested Android project as a composite build for discovery.
+// Tools can either use this root or directly use streamly_frontend/ as the root.
 includeBuild("streamly_frontend")

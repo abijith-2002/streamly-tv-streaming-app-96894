@@ -15,8 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-// Root shim: the actual Android project is under streamly-tv-streaming-app-96894/streamly_frontend/
-rootProject.name = "streamly-root-delegate"
+// Primary Gradle root for the Android app
+rootProject.name = "streamly-frontend"
 
-// Forward all Gradle invocations to the real project via composite build
-includeBuild("streamly-tv-streaming-app-96894/streamly_frontend")
+// No composite includes here; this is the real project root.

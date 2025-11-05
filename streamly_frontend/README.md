@@ -1,21 +1,21 @@
-# declarative-samples-android-app
-A sample Android application written in the Declarative Gradle DSL, using the prototype Declarative Gradle `androidApplication` Software Type defined in the `org.gradle.experimental.android-ecosystem` ecosystem plugin.
+# Streamly Android TV App
 
-## Building and Running
+This is the primary Gradle root for the Streamly Android TV application.
 
-This sample shows the definition of a multiproject Android application implemented using Kotlin 2.0.21 source code.
-The project is the result of reproducing the project produced by the `gradle init` command in Gradle 8.9 as an Android project.
+- Build tool: Gradle (no experimental plugins)
+- Kotlin source: 1.9.x stdlib, JDK 17
+- Modules: app, list, utilities
 
-To build the project without running, use:
-
-```shell
-  ./gradlew build
-```
-
-To run the application, first install it on a connected Android device using:
+Building:
 
 ```shell
-  :app:installDebug
+./gradlew build
 ```
 
-Then search for "Streamly" and launch the app to see the branded splash screen followed by the home screen.
+Install and run on a connected device:
+
+```shell
+./gradlew :app:installDebug
+```
+
+Then search for "Streamly" on the device and launch the app to see the splash screen followed by the home screen.
