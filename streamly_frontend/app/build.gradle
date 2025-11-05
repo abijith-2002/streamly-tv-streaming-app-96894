@@ -1,0 +1,5 @@
+/**
+ * Delegate Android app configuration to Declarative Gradle (.dcl).
+ * The root build.gradle applies the org.gradle.experimental.android-ecosystem plugin.
+ */
+apply from: "build.gradle.dcl"

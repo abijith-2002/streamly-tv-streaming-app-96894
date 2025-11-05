@@ -1,0 +1,18 @@
+pluginManagement {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+// Note: Direct 'apply from' on settings can trigger classloader scope lock errors in some CI environments.
+// We keep the canonical Declarative Gradle settings for actual configuration, and ensure standard
+// Gradle discovery can still find modules for tooling/lint. The .dcl file remains the source of truth.
+
+rootProject.name = "example-android-app"
+
+// Explicitly include modules so build tools can detect the Android project layout.
+include(":app")
+include(":list")
+include(":utilities")
