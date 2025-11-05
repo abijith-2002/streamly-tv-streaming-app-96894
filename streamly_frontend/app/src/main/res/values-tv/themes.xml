@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- TV-specific override ensures consistent splash background on TV form factor -->
+    <!-- TV-specific override ensures consistent splash background and wordmark visibility on TV -->
     <style name="Theme.Streamly.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/colorSplashBackground</item>
         <item name="android:windowBackground">@drawable/splash_background</item>

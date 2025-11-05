@@ -4,11 +4,6 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-    plugins {
-        id("com.android.application") version "8.6.1"
-        id("com.android.library") version "8.6.1"
-        id("org.jetbrains.kotlin.android") version "1.9.24"
-    }
 }
 
 dependencyResolutionManagement {
@@ -20,9 +15,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "example-android-app"
+// Root shim: the actual Android project is under streamly-tv-streaming-app-96894/streamly_frontend/
+rootProject.name = "streamly-root-delegate"
 
-// Include only intended modules.
-include(":app")
-include(":list")
-include(":utilities")
+// Forward all Gradle invocations to the real project via composite build
+includeBuild("streamly-tv-streaming-app-96894/streamly_frontend")
